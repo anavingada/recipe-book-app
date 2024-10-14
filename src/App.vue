@@ -1,30 +1,24 @@
-<script setup lang="ts">
-import HelloWorld from './components/HelloWorld.vue'
-</script>
-
 <template>
-  <div>
-    <a href="https://vitejs.dev" target="_blank">
-      <img src="/vite.svg" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://vuejs.org/" target="_blank">
-      <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
-    </a>
-  </div>
-  <HelloWorld msg="Vite + Vue" />
+  <header>
+    <nav>
+      <ul class="flex gap-4 p-8 bg-orange-200 text-orange-800">
+        <li>
+          <RouterLink :to="{ name: 'home' }" class="hover:underline">Home</RouterLink>
+        </li>
+        <li>
+          <RouterLink :to="{ name: 'favorites' }" class="hover:underline">Favorites</RouterLink>
+        </li>
+        <li>
+          <RouterLink :to="{ name: 'add-recipe' }" class="hover:underline">Add Recipe</RouterLink>
+        </li>
+      </ul>
+    </nav>
+  </header>
+  <main class="bg-orange-100 h-screen p-4">
+    <RouterView />
+  </main>
 </template>
 
-<style scoped>
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.vue:hover {
-  filter: drop-shadow(0 0 2em #42b883aa);
-}
-</style>
+<script setup lang="ts">
+import { RouterLink, RouterView } from 'vue-router';
+</script>
